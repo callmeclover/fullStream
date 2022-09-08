@@ -115,4 +115,3 @@ mediaRecorder2.onstop = (e) => {
   audio.src = audioURL;
 
   };
-};
