@@ -20,6 +20,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     .getUserMedia(
       // constraints - only audio needed for this app
       {
+        video: true,
         audio: true,
       }
     )
