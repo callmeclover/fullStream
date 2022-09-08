@@ -15,6 +15,8 @@ stream.addTrack(audioTrack);
 const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
 
+stopBtn.disabled = true;
+
 startBtn.onclick = async () => {
     stopBtn.disabled = false;
     startBtn.disabled = true;
