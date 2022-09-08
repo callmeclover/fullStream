@@ -1,3 +1,4 @@
+window.onload = async () => {
 const userMedia = await navigator.mediaDevices.getUserMedia({audio : true, video : true});
 
 videoElement.srcObject = userMedia;
@@ -16,14 +17,48 @@ const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
 
 stopBtn.disabled = true;
-
+};
 startBtn.onclick = async () => {
-    stopBtn.disabled = false;
-    startBtn.disabled = true;
+  try {
+stopBtn.disabled = false;
 videoElement.srcObject = userMedia;
 videoElement.play();
-}
+    startBtn.disabled = true;
+    const constraints = {
+      audio: true,
+      video: true
+    };    stopBtn.disabled = false;
+videoElement.srcObject = userMedia;
+videoElement.play();
+
 stopBtn.onclick = async () => {
     stopBtn.disabled = true;
     startBtn.disabled = false;
+    screenMedia.enabled = false;
+    audioTrack.enabled = false;
+    videoTrack.enabled = false;
 }
+startBtn.onclick = async () => {
+  try {
+ stopBtn.disabled = false;
+    startBtn.disabled = true;
+    screenMedia.enabled = true;
+    audioTrack.enabled = true;
+    videoTrack.enabled = true;
+    const constraints = {
+      audio: true,
+      video: true
+    };
+videoElement.srcObject = userMedia;
+videoElement.play();
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+
+    for (const track of stream.getTracks()) {
+      track.onended = () => {
+        startBtn.disabled = stream.getTracks().some((t) => t.readyState == 'live');
+      };
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
