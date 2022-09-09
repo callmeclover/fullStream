@@ -1,4 +1,3 @@
-
 window.onload = async () => {
 const userMedia = await navigator.mediaDevices.getUserMedia({audio : true, video : true});
 
@@ -18,7 +17,7 @@ stream.addTrack(audioTrack);
 const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
 
-]  
+}
 startBtn.onclick = function start() {
   videoElement1.play();
   videoElement2.play();
