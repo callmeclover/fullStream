@@ -1,6 +1,10 @@
 window.onload = async () => {
 const userMedia = await navigator.mediaDevices.getUserMedia({audio : true, video : true});
 
+const videoElement2 = document.getElementById("localVideo1");
+const videoElement1 = document.getElementById("localVideo2");
+
+
 videoElement2.srcObject = userMedia;
 videoElement1.srcObject = streamMedia;
 
