@@ -6,7 +6,6 @@ const videoElement1 = document.getElementById("localVideo2");
 
 
 videoElement2.srcObject = userMedia;
-videoElement1.srcObject = streamMedia;
 
 const videoTrack = userMedia.getVideoTracks()[0];
 const audioTrack = userMedia.getAudioTracks()[0];
@@ -17,6 +16,8 @@ const stream = new MediaStream();
 streamMedia.addTrack(screenMedia);
 stream.addTrack(videoTrack);
 stream.addTrack(audioTrack);
+  
+videoElement1.srcObject = streamMedia;
 
 const startBtn = document.getElementById('startbtn');
 const stopBtn = document.getElementById('stopbtn');
@@ -26,6 +27,8 @@ const stopBtn = document.getElementById('stopbtn');
   
 }
 function start() {
+videoElement2.srcObject = userMedia;
+videoElement1.srcObject = streamMedia;
   videoElement1.play();
   videoElement2.play();
 }
