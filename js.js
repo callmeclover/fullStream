@@ -1,4 +1,3 @@
-window.onload = function startUp() {
 const startBtn = document.getElementById('startbtn');
 const stopBtn = document.getElementById('stopbtn');
  
@@ -42,4 +41,3 @@ function stop() {
 
 startBtn.onclick = start();
 stopBtn.onclick = stop();
-}
