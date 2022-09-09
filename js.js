@@ -18,15 +18,18 @@ streamMedia.addTrack(screenMedia);
 stream.addTrack(videoTrack);
 stream.addTrack(audioTrack);
 
-const startBtn = document.getElementById('startBtn');
-const stopBtn = document.getElementById('stopBtn');
+const startBtn = document.getElementById('startbtn');
+const stopBtn = document.getElementById('stopbtn');
 
+  startBtn.addEventListener("click", start());
+  stopBtn.addEventListener("click", stop());
+  
 }
-startBtn.onclick = function start() {
+function start() {
   videoElement1.play();
   videoElement2.play();
 }
-stopBtn.onclick = function stop() {
+function stop() {
   videoElement1.stop();
   videoElement2.stop();
 }
