@@ -15,14 +15,12 @@ screenMedia.enabled = false;
  videoTrack.enabled = false;
   audioTrack.enabled = false;
 
-const streamMedia = new MediaStream();
 const stream = new MediaStream();
-streamMedia.addTrack(screenMedia);
 stream.addTrack(videoTrack);
 stream.addTrack(audioTrack);
   
 videoElement2.srcObject = userMedia;
-videoElement1.srcObject = streamMedia;
+videoElement1.srcObject = screenMedia;
   
 
 function start() {
@@ -30,7 +28,7 @@ screenMedia.enabled = true;
 videoTrack.enabled = true;
 audioTrack.enabled = true;
 videoElement2.srcObject = userMedia;
-videoElement1.srcObject = streamMedia;
+videoElement1.srcObject = screenMedia;
   videoElement1.play();
   videoElement2.play();
 }
