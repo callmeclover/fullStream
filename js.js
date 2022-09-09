@@ -1,11 +1,11 @@
-window.onload = async () => {
+window.onload = function startUp() {
+const startBtn = document.getElementById('startbtn');
+const stopBtn = document.getElementById('stopbtn');
+ 
 const userMedia = await navigator.mediaDevices.getUserMedia({audio : true, video : true});
 
 const videoElement2 = document.getElementById("localVideo1");
 const videoElement1 = document.getElementById("localVideo2");
-
-
-videoElement2.srcObject = userMedia;
 
 const videoTrack = userMedia.getVideoTracks()[0];
 const audioTrack = userMedia.getAudioTracks()[0];
@@ -24,10 +24,7 @@ stream.addTrack(audioTrack);
 videoElement2.srcObject = userMedia;
 videoElement1.srcObject = streamMedia;
   
-const startBtn = document.getElementById('startbtn');
-const stopBtn = document.getElementById('stopbtn');
-  
-}
+
 function start() {
 screenMedia.enabled = true;
 videoTrack.enabled = true;
@@ -47,3 +44,4 @@ function stop() {
 
 startBtn.onclick = start();
 stopBtn.onclick = stop();
+}
