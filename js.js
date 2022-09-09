@@ -26,15 +26,12 @@ videoElement1.srcObject = streamMedia;
   
 const startBtn = document.getElementById('startbtn');
 const stopBtn = document.getElementById('stopbtn');
-
-  startBtn.addEventListener("click", start());
-  stopBtn.addEventListener("click", stop());
   
 }
 function start() {
 screenMedia.enabled = true;
- videoTrack.enabled = true;
-  audioTrack.enabled = true;
+videoTrack.enabled = true;
+audioTrack.enabled = true;
 videoElement2.srcObject = userMedia;
 videoElement1.srcObject = streamMedia;
   videoElement1.play();
@@ -47,3 +44,6 @@ function stop() {
   videoElement1.stop();
   videoElement2.stop();
 }
+
+startBtn.onclick = start();
+stopBtn.onclick = stop();
