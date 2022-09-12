@@ -10,7 +10,6 @@ const videoTrack = userMedia.getVideoTracks()[0];
 const audioTrack = userMedia.getAudioTracks()[0];
 const screenMedia = await navigator.mediaDevices.getDisplayMedia();
 
-screenMedia.enabled = false;
  videoTrack.enabled = false;
   audioTrack.enabled = false;
 
@@ -21,16 +20,6 @@ stream.addTrack(audioTrack);
 videoElement2.srcObject = userMedia;
 videoElement1.srcObject = screenMedia;
   
-
-function start() {
-screenMedia.enabled = true;
-videoTrack.enabled = true;
-audioTrack.enabled = true;
-videoElement2.srcObject = userMedia;
-videoElement1.srcObject = screenMedia;
-  videoElement1.play();
-  videoElement2.play();
-}
 startBtn.addEventListener('click', () => {
 videoTrack.enabled = true;
 audioTrack.enabled = true;
