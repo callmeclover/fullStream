@@ -1,4 +1,4 @@
-async function asyncCall() {
+async window.onload {
 const startBtn = document.getElementById('startbtn');
 const stopBtn = document.getElementById('stopbtn');
  
