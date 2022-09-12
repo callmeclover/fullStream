@@ -31,13 +31,17 @@ videoElement1.srcObject = screenMedia;
   videoElement1.play();
   videoElement2.play();
 }
-function stop() {
-  screenMedia.enabled = false;
+startBtn.addEventListener('click', () => {
+videoTrack.enabled = true;
+audioTrack.enabled = true;
+videoElement2.srcObject = userMedia;
+videoElement1.srcObject = screenMedia;
+  videoElement1.play();
+  videoElement2.play();
+});
+stopBtn.addEventListener('click', () => {
  videoTrack.enabled = false;
   audioTrack.enabled = false;
   videoElement1.stop();
   videoElement2.stop();
-}
-
-startBtn.onclick = start();
-stopBtn.onclick = stop();
+});
