@@ -17,7 +17,6 @@ const screenMedia = await navigator.mediaDevices.getDisplayMedia();
 videoElement2.srcObject = userMedia;
 videoElement1.srcObject = screenMedia;
 }
-asyncCall();
 startBtn.addEventListener('click', () => {
 videoTrack.enabled = true;
 audioTrack.enabled = true;
